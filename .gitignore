@@ -148,6 +148,9 @@ trace.out
 *.rar
 *.7z
 
-# キャッシュファイル
+# 一時キャッシュファイル（アプリケーション生成）
 .cache/
-cache/
+/cache/
+*.cache
+cache.db
+cache.json
