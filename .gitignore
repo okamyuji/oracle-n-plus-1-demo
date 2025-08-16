@@ -1,0 +1,153 @@
+# Go関連のファイル
+# バイナリファイル（実行可能ファイル）
+oracle-n-plus-1-demo
+oracle-n-plus-1-demo.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# テストバイナリ、テストカバレッジ出力
+*.test
+*.out
+coverage.out
+*.cover
+*.prof
+
+# Go modules（通常はコミットする）
+# vendor/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# 環境設定ファイル
+.env
+.env.local
+.env.*.local
+*.env
+
+# ローカル設定ファイル
+config.local.*
+*.local
+
+# ログファイル
+*.log
+logs/
+log/
+
+# テンポラリファイル
+tmp/
+temp/
+*.tmp
+*.temp
+
+# データベース関連
+*.db
+*.sqlite
+*.sqlite3
+dump.sql
+*.dump
+backup/
+backups/
+
+# IDE・エディタ設定
+# VS Code
+.vscode/
+*.code-workspace
+
+# GoLand/IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# OS固有ファイル
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Node.js（もしフロントエンドツールを使用する場合）
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# パフォーマンステスト結果
+benchmark/
+benchmarks/
+*.bench
+pprof/
+
+# Docker関連（将来的に使用する可能性）
+.dockerignore
+docker-compose.override.yml
+
+# 証明書・キーファイル
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+
+# Oracle関連
+tnsnames.ora
+sqlnet.ora
+orapki/
+wallet/
+*.ora.local
+
+# デバッグ・プロファイリング
+debug
+*.debug
+cpu.out
+mem.out
+trace.out
+
+# 大容量ファイル
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# キャッシュファイル
+.cache/
+cache/
