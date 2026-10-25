@@ -1,6 +1,6 @@
 module oracle-n-plus-1-demo
 
-go 1.25
+go 1.26.10
 
 require (
 	github.com/joho/godotenv v1.5.1
