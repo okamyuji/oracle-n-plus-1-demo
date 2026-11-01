@@ -3,6 +3,8 @@ package config
 import (
 	"database/sql"
 	"fmt"
+	"net"
+	"net/url"
 	"os"
 	"strconv"
 
@@ -69,18 +71,22 @@ func LoadConfig() (*Config, error) {
 	return config, nil
 }
 
+// OracleDSN - go-ora の接続文字列を返す
+func OracleDSN(config *Config) string {
+	// go-ora v3.0.1 の FastLogin は、2 本目以降の接続で Oracle 23c に EOF で切られる（sijms/go-ora#732）
+	u := url.URL{
+		Scheme:   "oracle",
+		User:     url.UserPassword(config.DBUsername, config.DBPassword),
+		Host:     net.JoinHostPort(config.DBHost, strconv.Itoa(config.DBPort)),
+		Path:     "/" + config.DBServiceName,
+		RawQuery: url.Values{"FAST LOGIN": {"false"}}.Encode(),
+	}
+	return u.String()
+}
+
 // ConnectDatabase - データベースに接続する
 func ConnectDatabase(config *Config) (*sql.DB, error) {
-	// Oracle接続文字列の構築
-	dsn := fmt.Sprintf("oracle://%s:%s@%s:%d/%s",
-		config.DBUsername,
-		config.DBPassword,
-		config.DBHost,
-		config.DBPort,
-		config.DBServiceName,
-	)
-
-	db, err := sql.Open("oracle", dsn)
+	db, err := sql.Open("oracle", OracleDSN(config))
 	if err != nil {
 		return nil, fmt.Errorf("failed to open database: %w", err)
 	}
