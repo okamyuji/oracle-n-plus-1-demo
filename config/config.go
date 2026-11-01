@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/joho/godotenv"
-	_ "github.com/sijms/go-ora/v2"
+	_ "github.com/sijms/go-ora/v3"
 )
 
 // Config - アプリケーション設定
